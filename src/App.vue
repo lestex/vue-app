@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Hello world!"/>
+    <Header />
+    <Main />
+    <Form />
+    <Buttons />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import Main from './components/Main'
+import Buttons from './components/Buttons'
+import Form from './components/Form'
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Main,
+    Buttons,
+    Form,
+    Footer
   }
 }
 </script>
