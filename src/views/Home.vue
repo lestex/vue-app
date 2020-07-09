@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
+  <div>
     <Main />
   </div>
 </template>
 
 <script>
-import Main from '@/components/Main'
+import Main from '@/views/Main'
 
 export default {
   name: 'Home',
