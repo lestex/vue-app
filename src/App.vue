@@ -1,31 +1,12 @@
 <template>
   <div id="app">
-    <Header />
-    <Main />
-    <Form />
-    <Buttons />
-    <Footer />
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Header from './components/Header'
-import Main from './components/Main'
-import Buttons from './components/Buttons'
-import Form from './components/Form'
-import Footer from './components/Footer'
-
-export default {
-  name: 'App',
-  components: {
-    Header,
-    Main,
-    Buttons,
-    Form,
-    Footer
-  }
-}
-</script>
 
 <style>
 #app {
@@ -34,6 +15,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
