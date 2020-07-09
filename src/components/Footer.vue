@@ -1,12 +1,12 @@
 <template>
-    <footer>
-        <p>&copy; 2020 Copyright</p>
-    </footer>
+  <footer>
+    <p>&copy; 2020 Copyright</p>
+  </footer>
 </template>
 
 <script>
 export default {
-    name: 'Footer'
+  name: 'Footer'
 }
 </script>
 
