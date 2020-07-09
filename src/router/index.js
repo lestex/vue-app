@@ -21,12 +21,12 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/components/Form.vue')
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/logout',
     name: 'logout',
-    component: () => import('@/components/Form.vue')
+    component: () => import('@/views/Login.vue')
   }
 ]
 
