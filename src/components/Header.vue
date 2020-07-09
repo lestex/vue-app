@@ -1,16 +1,16 @@
 <template>
 <div class="test">
-    <header>
-        <a href="#" class="logo">Logo</a>
-        <a href="#" class="button">Home</a>
-        <button>Download</button>
-    </header>
+  <header>
+    <router-link to="/" class="logo">Logo</router-link>
+    <router-link to="/" class="button">Home</router-link>
+    <router-link to="/about" class="button">About</router-link>
+  </header>
 </div>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+  name: 'Header'
 }
 </script>
 
