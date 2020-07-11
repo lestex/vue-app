@@ -18,3 +18,9 @@ const ApiService = {
 };
 
 export default ApiService;
+
+export const GithubService = {
+  get() {
+    return ApiService.get("tagsrepositories", "sort=stars&order=desc&q=language:python");
+  }
+};
