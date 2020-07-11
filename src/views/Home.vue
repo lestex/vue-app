@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <p>Total repo count: {{ reposCount }} </p>
+    <p>Total repo countf or your request: {{ reposCount }} </p>
     <ul>
       <li v-for="repo in repos" :key="repo.id">
         <a v-bind:href="repo.html_url">{{ repo.html_url }}</a> - {{ repo.description }} - {{ repo.stargazers_count }}
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// import lorem from '@/common/';
 import { mapState } from 'vuex'
 
 export default {
