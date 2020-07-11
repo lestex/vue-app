@@ -3,7 +3,7 @@
   <div class="col-sm-8 col-md-offset-2">
     <form>
       <fieldset>
-        <legend class="doc">Login form</legend>
+        <legend class="doc">Login</legend>
           <div class="row responsive-label">
             <div class="col-sm-12 col-md-3">
               <label for="sf1-text" class="doc">Username</label>
