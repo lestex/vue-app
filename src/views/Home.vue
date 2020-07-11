@@ -1,19 +1,25 @@
 <template>
   <div class="container">
-    <p>Total repo countf or your request: {{ reposCount }} </p>
-    <ul>
-      <li v-for="repo in repos" :key="repo.id">
-        <a v-bind:href="repo.html_url">{{ repo.html_url }}</a> - {{ repo.description }} - {{ repo.stargazers_count }}
-      </li>
-  </ul>
+    <Search />
+
+    <p>Total repo count or your request: {{ reposCount }} </p>
+
+    <TableView v-bind:repos=repos />
+
   </div>
 </template>
 
 <script>
+import Search from '@/components/Search'
+import TableView from '@/components/TableView'
 import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
+  components: {
+    Search,
+    TableView
+  },
   computed: mapState({
     repos: state => state.home.repos,
     reposCount: state => state.home.reposCount
