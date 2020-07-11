@@ -1,38 +1,26 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-          <p>{{ lorem }}</p>
-      </div>
-      <div class="col-sm-8">
-          <p>{{ lorem }}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-          <p>{{ lorem }}</p>
-      </div> 
-      <div class="col-sm-6">
-          <p>{{ lorem }}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-          <p>{{ lorem }}</p>
-      </div>
-    </div>
+    <p>Total repo count: {{ reposCount }} </p>
+    <ul>
+      <li v-for="repo in repos" :key="repo.id">
+        <a v-bind:href="repo.html_url">{{ repo.html_url }}</a> - {{ repo.description }} - {{ repo.stargazers_count }}
+      </li>
+  </ul>
   </div>
 </template>
 
 <script>
-import lorem from '@/common/';
+// import lorem from '@/common/';
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
-  data() {
-    return {
-      lorem: lorem.lorem
-    }
+  computed: mapState({
+    repos: state => state.home.repos,
+    reposCount: state => state.home.reposCount
+  }),
+  mounted() {
+    this.$store.dispatch('getAllRepos')
   }
 }
 </script>
