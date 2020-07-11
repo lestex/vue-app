@@ -1,14 +1,11 @@
 import { GithubService } from "@/common/api.service";
-import { FETCH_REPOS } from "./actions.type";
-import {
-  FETCH_START,
-  FETCH_END
-} from "./mutations.type";
 
-const state = {
+// initial state
+const state = () => ({
   repos: [],
+  reposCount: 0,
   isLoading: true
-};
+})
 
 const getters = {
   repos(state) {
@@ -20,11 +17,11 @@ const getters = {
 };
 
 const actions = {
-  [FETCH_ARTICLES]({ commit }, params) {
-    commit(FETCH_START);
-    return GithubService.get(params.type, params.filters)
+  getAllRepos({ commit }) {
+    commit('fetchStart');
+    return GithubService.get()
       .then(({ data }) => {
-        commit(FETCH_END, data);
+        commit('fetchEnd', data);
       })
       .catch(error => {
         throw new Error(error);
@@ -33,11 +30,12 @@ const actions = {
 };
 
 const mutations = {
-  [FETCH_START](state) {
+  fetchStart(state) {
     state.isLoading = true;
   },
-  [FETCH_END](state, { repos }) {
-    state.repos = repos;
+  fetchEnd(state, data) {
+    state.repos = data.items;
+    state.reposCount = data.total_count;
     state.isLoading = false;
   }
 };
