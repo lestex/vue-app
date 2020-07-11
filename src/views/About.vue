@@ -5,13 +5,12 @@
 </template>
 
 <script>
-import lorem from '@/common/';
 
 export default {
   name: 'Home',
   data() {
     return {
-      lorem: lorem.lorem
+      lorem: 'Welcome to about page'
     }
   }
 }
