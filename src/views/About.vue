@@ -1,5 +1,18 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <p>{{ lorem }}</p>
   </div>
 </template>
+
+<script>
+import lorem from '@/common/';
+
+export default {
+  name: 'Home',
+  data() {
+    return {
+      lorem: lorem.lorem
+    }
+  }
+}
+</script>

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import lorem from '@/data/';
+import lorem from '@/common/';
 
 export default {
   name: 'Home',
