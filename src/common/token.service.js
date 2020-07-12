@@ -1,15 +1,20 @@
-const ID_TOKEN = "id_token";
+const TOKEN_KEY = "token";
 
 export const getToken = () => {
-  return window.localStorage.getItem(ID_TOKEN_KEY);
+  return window.localStorage.getItem(TOKEN_KEY);
 };
 
-export const saveToken = token => {
-  window.localStorage.setItem(ID_TOKEN_KEY, token);
+export const saveToken = () => {
+  const token = createToken()
+  window.localStorage.setItem(TOKEN_KEY, token);
 };
 
 export const deleteToken = () => {
-  window.localStorage.removeItem(ID_TOKEN_KEY);
+  window.localStorage.removeItem(TOKEN_KEY);
 };
 
-export default { getToken, saveToken, deleteToken };
+export const createToken = () => {
+  return 'super_secret_token';
+};
+
+export default { getToken, saveToken, deleteToken, createToken };
