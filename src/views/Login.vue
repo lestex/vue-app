@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Login',
@@ -51,15 +52,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['userLogin']),
     onSubmit(email, password) {
       console.log(email, password)
-      this.$store.dispatch('userLogin', email)
+      this.userLogin(email)
       this.$router.push({ name: 'home' })
     }
   }
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
