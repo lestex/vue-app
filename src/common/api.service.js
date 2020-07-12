@@ -19,7 +19,7 @@ const ApiService = {
 export default ApiService;
 
 export const GithubService = {
-  get() {
-    return ApiService.get("repositories", "sort=stars&order=desc&q=flask+language:python");
+  get(term) {
+    return ApiService.get('repositories', `sort=stars&order=desc&q=${term}+language:python`);
   }
 };

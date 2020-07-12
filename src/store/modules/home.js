@@ -17,9 +17,9 @@ const getters = {
 };
 
 const actions = {
-  getAllRepos({ commit }) {
+  getAllRepos({ commit }, term) {
     commit('fetchStart');
-    return GithubService.get()
+    return GithubService.get(term)
       .then(({ data }) => {
         commit('fetchEnd', data);
       })

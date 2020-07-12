@@ -25,7 +25,7 @@ export default {
     reposCount: state => state.home.reposCount
   }),
   mounted() {
-    this.$store.dispatch('getAllRepos')
+    this.$store.dispatch('getAllRepos', 'flask')
   }
 }
 </script>
