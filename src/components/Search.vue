@@ -4,15 +4,34 @@
       <label for="sf1-text" class="doc">Enter search term:</label>
     </div>
     <div class="col-sm-12 col-md">
-      <input type="text" placeholder="Term" id="sf1-text" style="width:85%;" class="doc">
+      <input 
+        @change="onChange"
+        type="text"
+        placeholder="Search"
+        v-model.trim="term"
+        style="width:85%;"
+        class="doc"
+      >
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Search'
+import { mapActions } from 'vuex';
 
+export default {
+  name: 'Search',
+  data() {
+    return {
+      term: null
+    }
+  },
+  methods: {
+    ...mapActions(['getAllRepos']),
+    onChange() {
+      this.getAllRepos(this.term)
+    }
+  }
 }
 </script>
 
