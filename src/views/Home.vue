@@ -12,7 +12,7 @@
 <script>
 import Search from '@/components/Search'
 import TableView from '@/components/TableView'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Home',
@@ -25,7 +25,10 @@ export default {
     reposCount: state => state.home.reposCount
   }),
   mounted() {
-    this.$store.dispatch('getAllRepos', 'flask')
+    this.getAllRepos('flask')
+  },
+  methods: {
+    ...mapActions(['getAllRepos'])
   }
 }
 </script>
