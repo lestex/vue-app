@@ -34,7 +34,7 @@
             </div>
           </div>
       </fieldset>
-      <button class="primary">Login</button>
+      <button class="primary" type="submit">Login</button>
     </form>
   </div>
 </div>
