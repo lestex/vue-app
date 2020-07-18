@@ -9,12 +9,23 @@
         </div>
         <form class="user">
         <div class="form-group">
-            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+            <input type="email"
+              class="form-control form-control-user" 
+              id="exampleInputEmail" 
+              aria-describedby="emailHelp" 
+              placeholder="Enter Email Address..."
+              v-model="email"
+            >
         </div>
         <div class="form-group">
-            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+            <input type="password"
+              class="form-control form-control-user"
+              id="exampleInputPassword"
+              placeholder="Password"
+              v-model="password"
+            >
         </div>
-        <a @click="login" class="btn btn-primary btn-user btn-block" type="submit">
+        <a @click="onSubmit" class="btn btn-primary btn-user btn-block" type="submit">
             Login
         </a>
         <hr>
@@ -49,10 +60,22 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
+  name: 'Login',
+  data() {
+    return {
+      email: null,
+      password: null
+    }
+  },
   methods: {
-    login() {
-      this.$router.push('/')
+    ...mapActions(['userLogin']),
+    onSubmit(email, password) {
+      console.log(email, password)
+      this.userLogin(email)
+      this.$router.push({ name: 'home' })
     }
   }
 }
