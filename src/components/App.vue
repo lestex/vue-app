@@ -1,27 +1,24 @@
 <template>
-  <div id="app">
-    <Header />
+  <component v-bind:is="layout">
     <router-view/>
-    <Footer />
-  </div>
+  </component>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import AuthLayout from '@/layouts/AuthLayout'
+import MainLayout from '@/layouts/MainLayout'
+import '@/assets/sb-admin-2.css'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Footer
+    AuthLayout, MainLayout
+  },
+  computed: {
+    layout() {
+      console.log((this.$route.meta.layout || 'auth') + '-layout')
+      return (this.$route.meta.layout || 'auth') + '-layout'
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  margin: auto;
-  width: 80%;
-}
-</style>

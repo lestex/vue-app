@@ -8,6 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
+    meta: {layout: 'Main'},
     component: Home
   },
   {
@@ -21,12 +22,20 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/Login.vue')
+    meta: {layout: 'auth'},
+    component: () => import('@/views/Auth/Login.vue')
   },
   {
-    path: '/logout',
-    name: 'logout',
-    component: () => import('@/views/Login.vue')
+    path: '/register',
+    name: 'register',
+    meta: {layout: 'auth'},
+    component: () => import('@/views/Auth/Register.vue')
+  },
+  {
+    path: '/forgot-password',
+    name: 'forgot-password',
+    meta: {layout: 'auth'},
+    component: () => import('@/views/Auth/ForgotPassword.vue')
   }
 ]
 
